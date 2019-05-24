@@ -2,6 +2,18 @@
 
 ### Overview
 
+
+A survey based app you could use to find a new friend with whom you are compatible.
+
+
+Technologies Used
+- Node 
+- Express
+
+<!-- 
+
+
+
 In this activity, you'll build a compatibility-based "FriendFinder" application -- basically a dating app. This full-stack site will take in results from your users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
 
 You will use Express to handle routing. Make sure you deploy your app to Heroku so other users can fill it out.
@@ -143,4 +155,4 @@ After completing the homework please add the piece to your portfolio. Make sure 
 
 If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
 
-**Good Luck!**
+**Good Luck!** -->
