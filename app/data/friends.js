@@ -2,7 +2,9 @@
 const express = require("express");
 const app = express ();
 const PORT = process.env.PORT ||3000;
-
+const path = require("path");
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 const friends =[{
     name: "Boris",
     photo:"https://www.tvovermind.com/wp-content/uploads/2017/07/Boris-Kodjoe-640x360.jpg",
@@ -36,11 +38,6 @@ const friends =[{
     scores: ["2","5", "1", "5", "5"]
 }];
 
-app.listen(PORT, function() {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:" + PORT);
-    console.log ("We are in!");
-  });
 
 //   making friends a dependency to be required in necessary files by exporting.
   module.exports =friends;
