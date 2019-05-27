@@ -9,6 +9,10 @@ A survey based app you could use to find a new friend with whom you are compatib
 Technologies Used
 - Node 
 - Express
+- JQuery
+- Bootstrap
+- Font Awesome
+- 
 
 <!-- 
 
