@@ -1,10 +1,4 @@
 
-const express = require("express");
-const app = express ();
-const PORT = process.env.PORT ||3000;
-const path = require("path");
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
 const friends =[{
     name: "Boris",
     photo:"https://www.tvovermind.com/wp-content/uploads/2017/07/Boris-Kodjoe-640x360.jpg",
