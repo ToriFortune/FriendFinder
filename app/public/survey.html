@@ -188,8 +188,86 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-  
+   <script type="text/javascript">
+        
+          const config = {
+            ".chosen-select": {},
+            ".chosen-select-deselect": {
+              allow_single_deselect: true
+            },
+            ".chosen-select-no-single": {
+              disable_search_threshold: 10
+            },
+            ".chosen-select-no-results": {
+              no_results_text: "No match found!"
+            },
+            ".chosen-select-width": {
+              width: "95%"
+            }
+          };
+      
+          for (selector in config) {
+            $(selector).chosen(config[selector]);
+          }
+      
+     
+          $("#submit").on("click", function(event) {
+            event.preventDefault();
+      
+            // Form validation
+            function validate() {
+              let isValid = true;
+              $(".form-control").each(function() {
+                if ($(this).val() === "") {
+                  isValid = false;
+                }
+              });
+      
+              $(".chosen-select").each(function() {
+      
+                if ($(this).val() === "") {
+                  isValid = false;
+                }
+              });
+              return isValid;
+            }
+      
+           
+            if (validate()) {
+              
+              userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                  $("#q1").val(),
+                  $("#q2").val(),
+                  $("#q3").val(),
+                  $("#q4").val(),
+                  $("#q5").val(),
+                  $("#q6").val(),
+                  $("#q7").val(),
+                  $("#q8").val(),
+                  $("#q9").val(),
+                  $("#q10").val()
+                ]
+              };
+      
+              // post the data for friends API.
+              $.post("/api/friends", userData, function(data) {
+                console.log(data);
+                // Use the result from the ajax post to show best match info
+                $("#match-name").text(data.name);
+                $("#match-img").attr("src", data.photo);
+      
+                $("#results-modal").modal("toggle");
+               
+               
+              })
+            } else {
+              alert("Mandatory fields missing");
+            }
+          });
+        </script>
   </script>
 
 </body>
