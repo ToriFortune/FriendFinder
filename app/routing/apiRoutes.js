@@ -27,34 +27,35 @@ module.exports = (app) => {
     };
     //compare new user's scores to all existing users' scores
     //to determine the best match
+    const bestMatch = {
+      name:"",
+      photo:"",
+      diff: null,
+    }
+    
+    for (var i=0; i<friends.length;){
+      var currentUser =friends [i]
+      var userDifference=0;
+      for (var j=0; j<currentUser.scores.length; j++){userDifference+=Math.abs(parseInt(currentUser.scores[j]))
+        
+      }
+      if (userDifference<bestMatch.diff){
+        bestMatch.name=currentUser.name;
+        bestMatch.photo=currentUser.photo;
+        bestMatch.diff=currentUser.diff;
+        console.log("FOUND: " + bestMatch)
+        break;
+      } else {
+        console.log("Not a match.")
+        // bestMatch = "No match!"
+      }
+    }
+    
+    friends.push(newFriend);
+    res.json(bestMatch);
   });
 }
 
-const bestMatch ={
-  name:"",
-  photo:"",
-  diff: null,
-}
 
-for (var i=0; i<friends.length;){
-  var currentUser =friends [i]
-  var userDifference=0;
-  for (var j=0; j<currentUser.scores.length; j++){userDifference+=Math.abs(parseInt(currentUser.scores[j]))
-    
-  }
-  if (userDifference<bestMatch.diff){
-    bestMatch.name=currentUser.name;
-    bestMatch.photo=currentUser.photo;
-    bestMatch.diff=currentUser.diff;
-    console.log("FOUND: " + bestMatch)
-    break;
-  } else {
-    console.log("Not a match.")
-    bestMatch = "No match!"
-  }
-}
-
-friends.push(newFriend);
-res.json(bestMatch);
 
 
